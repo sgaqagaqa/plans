@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quiz 2 💪</title>
+<style>
+body{margin:0;height:100vh;display:flex;justify-content:center;align-items:center;
+background:linear-gradient(135deg,#ffd6e8,#fff0f6);
+font-family:Poppins,sans-serif;overflow:hidden;}
+.card{background:white;padding:30px;border-radius:25px;width:90%;max-width:420px;text-align:center;}
+input,button{width:100%;padding:14px;border-radius:12px;}
+button{background:#ff4d88;border:none;color:white;margin-top:10px;}
+.heart{position:fixed;bottom:-20px;font-size:24px;animation:float 2.5s forwards;}
+@keyframes float{to{transform:translateY(-120vh);opacity:0;}}
+.x{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+font-size:60px;animation:pop .6s;}
+@keyframes pop{0%{opacity:0;}50%{opacity:1;}100%{opacity:0;}}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h2>💪 Question 2</h2>
+<p>What’s my favourite muscle group to train?</p>
+<input id="a">
+<button onclick="check()">Unlock</button>
+</div>
+
+<script>
+function check(){
+  if(a.value.trim().toLowerCase()=="chest"){
+    for(let i=0;i<12;i++){
+      let h=document.createElement("div");
+      h.className="heart";h.innerHTML="💖";
+      h.style.left=Math.random()*100+"vw";
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),2500);
+    }
+    setTimeout(()=>location.href="quiz3.html",700);
+  } else {
+    let x=document.createElement("div");
+    x.className="x";x.innerHTML="❌";
+    document.body.appendChild(x);
+    setTimeout(()=>x.remove(),600);
+  }
+}
+</script>
+
+</body>
+</html>
